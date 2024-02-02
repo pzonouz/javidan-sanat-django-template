@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-+tmr^j7-8n6n-u(5)k^w8h=+2pedkpy8yf32*xnlbpdpw3#lzg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -138,3 +138,6 @@ INTERNAL_IPS = [
 ]
 
 AUTH_USER_MODEL = "users.user"
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = "media/"

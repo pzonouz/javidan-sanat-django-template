@@ -1,0 +1,6 @@
+<div class="suppliers">
+    <div class="suppliers-top">تامین کنندگان</div>
+    <div class="supplies-grid">
+        {% for brand in brands %}<img src="/media/{{ brand.small_image }}" alt="{{ brand.name }}">{% endfor %}
+    </div>
+</div>

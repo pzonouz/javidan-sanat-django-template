@@ -38,27 +38,46 @@ class Product(core_models.TimeStamped):
     )
     projects = models.ManyToManyField(to="projects.Project", related_name="products")
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class ProductCategoryLevel1(core_models.TimeStamped):
     name = models.CharField(max_length=50)
     image = models.ImageField(null=True, blank=True)
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class ProductCategoryLevel2(core_models.TimeStamped):
     name = models.CharField(max_length=50)
     image = models.ImageField(null=True, blank=True)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class ProductCategoryLevel3(core_models.TimeStamped):
     name = models.CharField(max_length=50)
     image = models.ImageField(null=True, blank=True)
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class ProductType(core_models.TimeStamped):
     name = models.CharField(max_length=50)
     image = models.ImageField()
 
+    def __str__(self):
+        return self.name
+
 
 class Brand(core_models.TimeStamped):
     name = models.CharField(max_length=50)
     image = models.ImageField()
+    small_image = models.ImageField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name

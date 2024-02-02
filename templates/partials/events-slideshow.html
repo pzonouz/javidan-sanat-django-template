@@ -1,0 +1,24 @@
+<div class="events-slideshow">
+    <div class="events-slideshow-top">رویدادها</div>
+    <!-- Slider main container -->
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            {% for slide in EventsSlideShow %}
+                <div class="swiper-slide">
+                    <img src="/media/{{ slide.main_picture }}" alt={{ slide.name }} />
+                    <p>{{ slide.name }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <!-- If we need scrollbar -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+    <a href="{% url "projects:all" %}" class="events-slideshow-button">مشاهده تمام رویدادها</a>
+</div>
