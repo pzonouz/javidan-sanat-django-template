@@ -1,0 +1,67 @@
+:root {
+  --primary-color: #dc2626;
+  --secondary-color: #1e293b;
+}
+
+@font-face {
+  font-family: "Yekan";
+  src: url("./fonts/Yekan.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Yekan";
+}
+.navbar-top-bar {
+  width: 100%;
+  height: 2.5rem;
+  color: white;
+  background-color: var(--secondary-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.fa-icon-holder {
+  cursor: pointer;
+}
+.navbar {
+  color: white;
+  height: 4rem;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+  align-items: center;
+  padding-right: 1rem;
+  overflow: hidden;
+}
+.logo {
+  height: 115%;
+}
+.heading {
+  flex: 6;
+  text-align: end;
+  line-height: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.heading-top {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.heading-button {
+  font-size: 0.7rem;
+  font-weight: bold;
+}
