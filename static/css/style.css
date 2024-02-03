@@ -88,6 +88,9 @@ body {
   width: 100%;
   position: relative;
 }
+.products-slideshow .swiper-slide p {
+  display: none;
+}
 .events-slideshow .swiper-slide p,
 .projects-slideshow .swiper-slide p {
   position: absolute;
@@ -343,4 +346,49 @@ body {
 .copyright-container a {
   text-decoration: none;
   color: var(--secondary-color);
+}
+.product-list {
+  padding: 1rem 1rem;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  text-align: center;
+  background-color: var(--background-gray-color-tint);
+  padding: 1rem;
+  border-radius: 8px;
+}
+.product-card img {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.product-card div {
+  font-size: 1.2rem;
+}
+.product-card a {
+  color: white;
+  background-color: var(--primary-color);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 8px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  width: 100%;
+}
+.product-card a:hover {
+  background-color: var(--primary-color-tint);
+}
+.product-card div {
+  width: 100%;
+}
+.product-list {
+  width: 100%;
+  display: grid;
+  grid-row: 1fr;
+  gap: 3rem;
 }

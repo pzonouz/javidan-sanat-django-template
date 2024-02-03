@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="product-list">
+        {% for product in object_list %}
+            {% include "mixins/product_card.html" %}
+        {% endfor %}
+    </div>
+{% endblock content %}
