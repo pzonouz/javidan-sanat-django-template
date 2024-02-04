@@ -38,7 +38,8 @@ class Image(core_models.TimeStamped):
 
 class Video(core_models.TimeStamped):
     name = models.CharField(max_length=50)
-    file = models.FileField()
+    link = models.CharField(max_length=255, null=True)
+    # file = models.FileField()
     product = models.ForeignKey(
         "products.Product",
         on_delete=models.SET_NULL,
@@ -53,7 +54,9 @@ class Video(core_models.TimeStamped):
         blank=True,
         related_name="videos",
     )
-    projects = models.ManyToManyField("projects.Project", related_name="videos")
+    projects = models.ManyToManyField(
+        "projects.Project", related_name="videos", blank=True
+    )
 
     def __str__(self):
         return self.name

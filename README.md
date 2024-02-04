@@ -4,3 +4,4 @@ Django-debug-toolbar
 django-extensions
 
 swiper.js
+baguetteBox.js

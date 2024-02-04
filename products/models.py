@@ -43,3 +43,11 @@ class Brand(core_models.TimeStamped):
 
     def __str__(self):
         return self.name
+
+
+class Specification(core_models.TimeStamped):
+    field = models.TextField()
+    products = models.ManyToManyField(to=Product, related_name="specifications")
+
+    def __str__(self) -> str:
+        return self.field

@@ -4,6 +4,7 @@
   --secondary-color: #1e293b;
   --background-gray-color: #f6f7fb;
   --background-gray-color-tint: #e5e7eb;
+  --gray-color: #4b5563;
 }
 
 @font-face {
@@ -52,7 +53,7 @@ body {
   height: 4rem;
   background-color: var(--primary-color);
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   gap: 1rem;
   align-items: center;
   padding-right: 1rem;
@@ -391,4 +392,85 @@ body {
   display: grid;
   grid-row: 1fr;
   gap: 3rem;
+}
+.product-detail {
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.product-detail-main-picture {
+  width: 100%;
+}
+.product-detail-name {
+  font-size: 2rem;
+  text-align: center;
+}
+.product-detail-preamble {
+  white-space: pre-line;
+  text-align: right;
+  line-height: 1.8rem;
+  color: var(--gray-color);
+}
+.product-detail-photo-gallery,
+.product-detail-video-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.product-detail-photo-gallery img {
+  width: 100%;
+}
+.product-detail-photo-gallery p {
+  margin-bottom: 2rem;
+  margin-top: 4rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+.product-detail-video-gallery p {
+  margin-bottom: 2rem;
+  margin-top: 4rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+.product-detail-video-gallery iframe {
+  width: 100%;
+  border-radius: 8px;
+  margin: 1rem;
+}
+.product-detail-specifications {
+  width: 100%;
+}
+.product-detail-specifications p {
+  color: white;
+  background-color: var(--primary-color);
+  height: 2rem;
+  font-weight: bold;
+  line-height: 2rem;
+  padding: 0 1rem;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.product-detail-specifications div {
+  padding: 0.5rem 1rem;
+}
+.product-detail-specifications div:nth-child(even) {
+  background-color: var(--background-gray-color-tint);
+}
+.product-detail-footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+  width: 100%;
+  background-color: var(--background-gray-color-tint);
+  padding: 2rem 0.5rem;
+  margin-top: 2rem;
+}
+.product-detail-footer div {
+  font-size: 1rem;
 }

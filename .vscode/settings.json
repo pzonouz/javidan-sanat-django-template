@@ -1,5 +1,7 @@
 {
   "cSpell.words": [
+    "baguettebox",
+    "fontawsome",
     "javidan",
     "NACI",
     "sanat",
@@ -7,5 +9,6 @@
     "tailwindcss",
     "Yekan",
     "رویدادها"
-  ]
+  ],
+  "liveServer.settings.port": 5501
 }
