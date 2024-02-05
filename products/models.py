@@ -1,7 +1,9 @@
+from django.urls import reverse
 from core import models as core_models
 from django.db import models
 
-TYPE_CHOICES = (("PR", "PRODUCT"), ("SR", "SERVICE"), ("CL", "CLASS"))
+TYPE_CHOICES = (("PT", "PART"), ("SR", "SERVICE"), ("CL", "CLASS"))
+VEHICLE_CHOICES = (("HV", "HEAVY"), ("LT", "LIGHT"))
 
 
 class Product(core_models.TimeStamped):
@@ -20,6 +22,10 @@ class Product(core_models.TimeStamped):
     projects = models.ManyToManyField(
         to="projects.Project", related_name="products", blank=True
     )
+    vehicle = models.CharField(max_length=10, choices=VEHICLE_CHOICES, default="LT")
+
+    def get_absolute_url(self):
+        return reverse("products:detail", kwargs={"pk": self.pk})
 
     def __str__(self) -> str:
         return self.name

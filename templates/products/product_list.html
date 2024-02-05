@@ -1,8 +1,89 @@
 {% extends "base.html" %}
 {% block content %}
+    {% include "partials/search.html" %}
     <div class="product-list">
-        {% for product in products %}
-            {% include "mixins/product_card.html" %}
-        {% endfor %}
+        <form class="tabs">
+            <fieldset id="product_type">
+                <input id="parts"
+                       type="radio"
+                       value="PT"
+                       name="product_type"
+                       {% if product_type == "PT" %}checked{% endif %} />
+                <label for="parts">تجهیزات</label>
+                <span class="tab" id="parts">
+                    <form class="filter">
+                        <select name="vehicle" id="vehicle" class="filter-select">
+                            <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
+                            <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
+                            <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
+                        </select>
+                        <select name="category" id="category" class="filter-select">
+                            <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
+                            {% for p in part_categories %}
+                                <option value="{{ p.pk }}"
+                                        {% if p.pk|slugify ==  part_category %}selected{% endif %}>
+                                    {{ p.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <button class="filter-button">فیلتر</button>
+                    </form>
+                    {% for product in parts %}
+                        {% include "mixins/product_card.html" %}
+                    {% endfor %}
+                </span>
+                <input id="services" type="radio" value="SR" name="product_type">
+                <label for="services">خدمات</label>
+                <span class="tab" id="services">
+                    <form class="filter">
+                        <!-- <select name="vehicle" id="vehicle" class="filter-select">
+                            <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
+                            <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
+                            <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
+                        </select> -->
+                        <select name="category" id="category" class="filter-select">
+                            <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
+                            {% for p in service_categories %}
+                                <option value="{{ p.pk }}"
+                                        {% if p.pk|slugify ==  part_category %}selected{% endif %}>
+                                    {{ p.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <button class="filter-button">فیلتر</button>
+                    </form>
+                    {% for product in parts %}
+                        {% include "mixins/product_card.html" %}
+                    {% endfor %}
+                </span>
+                <input id="classes" type="radio" value="CL" name="product_type">
+                <label for="classes">آموزش</label>
+                <span class="tab" id="classes">
+                    <form class="filter">
+                        <!-- <select name="vehicle" id="vehicle" class="filter-select">
+                        <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
+                        <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
+                        <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
+                    </select> -->
+                        <select name="category" id="category" class="filter-select">
+                            <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
+                            {% for p in service_categories %}
+                                <option value="{{ p.pk }}"
+                                        {% if p.pk|slugify ==  part_category %}selected{% endif %}>
+                                    {{ p.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <button class="filter-button">فیلتر</button>
+                    </form>
+                    {% for product in parts %}
+                        {% include "mixins/product_card.html" %}
+                    {% endfor %}
+                </span>
+                <input id="PROJECT" type="radio" value="PR" name="product_type">
+                <label for="PROJECT">پروژه ها</label>
+                <span class="tab" id="projects"></span>
+            </fieldset>
+        </form>
     </div>
 {% endblock content %}
