@@ -40,6 +40,7 @@ const entityFilterTabHeaders = document.querySelector(
   ".entity-filter-tab-headers"
 );
 
+// filter
 const entityFilterTabs = document.querySelectorAll(".entity-filter-tab");
 entityFilterTabHeaders.addEventListener("click", (e) => {
   const el = e.target;

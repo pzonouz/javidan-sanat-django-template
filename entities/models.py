@@ -23,6 +23,7 @@ class Entity(core_models.TimeStamped):
         on_delete=models.SET_NULL,
         null=True,
         related_name="entities",
+        blank=True,
     )
     category = models.ForeignKey("Category", on_delete=models.SET_NULL, null=True)
     entities = models.ManyToManyField(to="self", blank=True)

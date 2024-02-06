@@ -2,6 +2,7 @@
   --primary-color: #dc2626;
   --primary-color-tint: #b01e1e;
   --secondary-color: #1e293b;
+  --complementary-color: #26dcdc;
   --background-gray-color: #f6f7fb;
   --background-gray-color-tint: #e5e7eb;
   --background-gray-color-tinter: #ced0d4;
@@ -397,7 +398,7 @@ img {
 }
 .entity-filter-tab-header {
   cursor: pointer;
-  padding: 1rem 1rem;
+  padding: 1rem 0.78rem;
   background-color: var(--background-gray-color-tint);
 }
 .entity-filter-tabs {
@@ -909,10 +910,13 @@ body {
   }
 }
 .not-found {
-  height: 25vh;
-  width: 100%;
-  text-align: center;
-  vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  min-height: 25vh;
+  color: var(--secondary-color);
 }
 
 @keyframes fade-in {

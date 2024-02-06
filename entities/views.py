@@ -11,10 +11,10 @@ class EntitiesList(View):
         part_categories = Category.objects.filter(entity__type="PT").distinct()
         service_categories = Category.objects.filter(entity__type="SR").distinct()
         class_categories = Category.objects.filter(entity__type="CL").distinct()
-        project_categories = Category.objects.filter(entity__type="CL").distinct()
-        event_categories = Category.objects.filter(entity__type="CL").distinct()
+        project_categories = Category.objects.filter(entity__type="PR").distinct()
+        event_categories = Category.objects.filter(entity__type="EV").distinct()
         if not request.GET:
-            entities = Entity.objects.all()
+            entities = Entity.objects.filter(type="PT")
             return render(
                 request,
                 "entities/entity_list.html",
@@ -56,9 +56,12 @@ class EntitiesList(View):
                 "part_categories": part_categories,
                 "service_categories": service_categories,
                 "class_categories": class_categories,
+                "project_categories": project_categories,
+                "event_categories": event_categories,
                 "entity_type": entity_type,
                 "entity_category": category,
                 "vehicle": vehicle,
+                "category": category,
             },
         )
 
