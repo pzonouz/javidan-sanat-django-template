@@ -67,9 +67,24 @@ img {
   align-items: center;
   padding-right: 1rem;
   overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 2.5rem;
+  z-index: 100;
+}
+.navbar-top-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 2.5rem;
+  z-index: 100;
 }
 .desktop-navbar {
   display: none;
+}
+.content {
+  margin-top: 6.5rem;
 }
 
 .logo-a {
@@ -697,6 +712,9 @@ body {
 .announce img {
   vertical-align: bottom;
 }
+.desktop-menu {
+  display: none;
+}
 @media (min-width: 992px) {
   .main-section {
     padding: 1rem 1rem;
@@ -805,13 +823,14 @@ body {
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
-    margin: 0 -2px;
     position: fixed;
-    top: 0;
+    top: 2.5rem;
     right: 0;
+    width: 100%;
+    z-index: 100;
   }
   .content {
-    margin-top: 8rem;
+    margin-top: 14.5rem;
   }
   .heading {
     margin-top: 1.5rem;
@@ -829,9 +848,10 @@ body {
     right: 0;
   }
   .desktop-navbar .logo {
-    height: 102%;
-    width: 102%;
+    height: 95%;
+    width: auto;
     object-fit: cover;
+    margin-right: -0.5px;
   }
   .announce {
     overflow: hidden;
@@ -908,6 +928,34 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+  }
+  .navbar-top-bar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 100;
+  }
+  .desktop-menu {
+    position: fixed;
+    top: 10.5rem;
+    right: 0;
+    width: 100%;
+    height: 4rem;
+    background-color: var(--background-gray-color);
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.2rem;
+  }
+  .desktop-menu a {
+    text-decoration: none;
+    color: black;
+  }
+  .desktop-menu a:hover {
+    color: var(--primary-color);
   }
 }
 @media (min-width: 576px) {
