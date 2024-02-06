@@ -16,13 +16,13 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
+# Quick-start development settings - unsuitable for entityion
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key used in entityion secret!
 SECRET_KEY = "django-insecure-+tmr^j7-8n6n-u(5)k^w8h=+2pedkpy8yf32*xnlbpdpw3#lzg"
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in entityion!
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
@@ -41,10 +41,8 @@ INSTALLED_APPS = [
     "django_extensions",
     "core",
     "customers",
-    "events",
     "files",
-    "products",
-    "projects",
+    "entities",
     "users",
 ]
 

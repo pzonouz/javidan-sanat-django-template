@@ -3,20 +3,16 @@
     Home
 {% endblock title %}
 {% block content %}
-    <section class="top-section">
+    <section class="main-section">
         {% include "partials/slideshow.html" with slideshow=TopSlideshow %}
         {% include "partials/announce.html" %}
         {% include "partials/features.html" %}
-    </section>
-    {% include "partials/brands.html" %}
-    <section class="top-section">
+        {% include "partials/brands.html" %}
         {% include "partials/achievements.html" %}
         {% include "partials/commitments.html" %}
         {% include "partials/projects-slideshow.html" with slideshow=ProjectSlideShow %}
         {% include "partials/events-slideshow.html" %}
         {% include "partials/suppliers.html" %}
         {% include "partials/visit-cards.html" %}
-        {% include "partials/footer.html" %}
-        {% include "partials/copyright.html" %}
     </section>
 {% endblock content %}

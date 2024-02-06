@@ -1,30 +1,56 @@
 <div id="navbar-top-bar" class="navbar-top-bar">
     <div id="social-icons" class="social-icons">
         <div class="fa-icon-holder">
-            <i class="fa fa-instagram fa-xl" aria-hidden="true"></i>
+            <i class="fa-brands fa-instagram fa-xl" aria-hidden="true"></i>
         </div>
         <div class="fa-icon-holder">
-            <i class="fa fa-telegram fa-xl" aria-hidden="true"></i>
+            <i class="fa-brands fa-telegram fa-xl" aria-hidden="true"></i>
         </div>
         <div class="fa-icon-holder">
-            <i class="fa fa-whatsapp fa-xl" aria-hidden="true"></i>
+            <i class="fa-brands fa-whatsapp fa-xl" aria-hidden="true"></i>
         </div>
     </div>
     <div class="phone-number">04135420988</div>
 </div>
-<nav class="navbar">
-    <div class="menu">
-        <div class="fa-icon-holder">
-            <i class="fa fa-bars fa-xl" aria-hidden="true"></i>
+<nav class="mobile-navbar">
+    <div class="backdrop" id="backdrop"></div>
+    <div class="side-menu" id="side-menu">
+        <div class="a-container">
+            <a href="{% url "core:home" %}">
+                <img src="/static/image/arm2000.webp" />
+            </a>
+            <a href="{% url "entities:list" %}">محصولات</a>
+            <a href="{% url "entities:list" %}">خدمات</a>
+            <a href="{% url "entities:list" %}">پروژه ها</a>
+            <a href="{% url "entities:list" %}">درباره ما</a>
+            <a href="{% url "entities:list" %}">ارتباط با ما</a>
         </div>
     </div>
-    <div class="heading">
-        <a class="heading-top">گروه جاویدان صنعت</a>
-        <a class="heading-button">فردای روشن خدمات</a>
+    <div class="fa-icon-holder" id="menu-button">
+        <i class="fa-solid fa-bars fa-xl" aria-hidden="true"></i>
     </div>
-    <img class="logo"
-         height="73px"
-         width="90px"
-         alt="logo"
-         src="../../static/image/arm2000.webp" />
+    <div class="heading">
+        <a href="{% url "core:home" %}" class="heading-top">گروه جاویدان صنعت</a>
+        <a href="{% url "core:home" %}" class="heading-bottom">فردای روشن خدمات</a>
+    </div>
+    <a href="{% url "core:home" %}" class="logo-a">
+        <img class="logo"
+             height="73px"
+             width="90px"
+             alt="logo"
+             src="../../static/image/arm2000.webp" />
+    </a>
+</nav>
+<nav class="desktop-navbar">
+    <div class="heading">
+        <a href="{% url "core:home" %}" class="heading-top">گروه جاویدان صنعت</a>
+        <a href="{% url "core:home" %}" class="heading-bottom">تجهیزات،خدمات،کالیبراسیون،آموزش</a>
+    </div>
+    <a href="{% url "core:home" %}" class="logo-a">
+        <img class="logo"
+             height="73px"
+             width="90px"
+             alt="logo"
+             src="../../static/image/arm200.webp" />
+    </a>
 </nav>

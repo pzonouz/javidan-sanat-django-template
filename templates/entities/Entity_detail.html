@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="entity-detail">
+        <img src="/media/{{ object.main_picture }}"
+             class="entity-detail-main-picture" />
+        <div class="entity-detail-text">
+            <div class="entity-detail-name">{{ object.name }}</div>
+            <div class="entity-detail-preamble">{{ object.preamble }}</div>
+        </div>
+        <div class="entity-detail-photo-gallery">
+            <p>گالری تصاویر</p>
+            <div class="entity-detail-photo-gallery-items">
+                {% for image in object.images.all %}
+                    <a href="/media/{{ image.file }}" data-caption="Image caption">
+                        <img src="/media/{{ image.file }}" alt="{{ image.name }}">
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- <div class="entity-detail-video-gallery">
+            <p>گالری ویديوها</p>
+            {% for video in object.videos.all %}
+                <iframe src={{ video.link }} allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+            {% endfor %}
+        </div> -->
+        <div class="entity-detail-specifications">
+            <p>مشخصات فنی</p>
+            {% for spec in object.specifications.all %}<div>{{ spec.field }}</div>{% endfor %}
+        </div>
+    </div>
+    <div class="entity-detail-footer">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+        <p>نیاز به مشاوره دارید؟</p>
+        <div>جهت استعلام قیمت محصولات، مشاوره خرید و هر سوال دیگر میتوانید با ما بطور مستقیم در ارتباط دارید.</div>
+        <div>
+            09146160216
+            آقای محمدنژاد-مدیر فروش
+        </div>
+        <div>
+            09147868011
+            آقای ساجدی -مدیر فنی
+        </div>
+    </div>
+{% endblock content %}

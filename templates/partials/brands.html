@@ -1,6 +1,8 @@
 <div class="brands">
     <div class="brands-top">جاویدان صنعت</div>
-    {% for brand in brands %}
-        {% include "mixins/brand.html" %}
-    {% endfor %}
+    <div class="brands-items">
+        {% for brand in brands %}
+            {% include "mixins/brand.html" %}
+        {% endfor %}
+    </div>
 </div>

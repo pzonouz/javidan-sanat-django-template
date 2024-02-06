@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="{% static "css/style.css" %}">
         <link rel="stylesheet" href="/static/css/baguetteBox.min.css">
         <link rel="stylesheet" href="{% static "css/swiper-bundle.min.css" %}" />
+        <link rel="stylesheet" href="/static/css/all.min.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
@@ -16,8 +17,9 @@
         {% include "partials/navbar.html" %}
         {% block content %}
         {% endblock content %}
-        <script src="{% static "js/fontawsome6.js"%}"></script>
+        {% include "partials/footer.html" %}
+        {% include "partials/copyright.html" %}
         <script src="{% static "js/swiper-bundle.min.js" %}""></script>
-        <script src="{% static "js/main.js" %}"></script>
+        <script src="{% static "js/bundle.js" %}"></script>
     </body>
 </html>

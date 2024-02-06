@@ -15,7 +15,7 @@ class ImageAdmin(admin.ModelAdmin):
     # readonly_fields = ("",)
     # search_fields = ("",)
     # date_hierarchy = ""
-    # ordering = ("",)admin.register("Product")
+    # ordering = ("",)admin.register("Entity")
 
 
 @admin.register(Video)
