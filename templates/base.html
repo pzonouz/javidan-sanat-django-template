@@ -14,8 +14,10 @@
     </head>
     <body>
         {% include "partials/navbar.html" %}
-        {% block content %}
-        {% endblock content %}
+        <div class="content">
+            {% block content %}
+            {% endblock content %}
+        </div>
         {% include "partials/footer.html" %}
         {% include "partials/copyright.html" %}
         <script src="{% static "js/swiper-bundle.min.js" %}""></script>
