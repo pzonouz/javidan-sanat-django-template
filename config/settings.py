@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-+tmr^j7-8n6n-u(5)k^w8h=+2pedkpy8yf32*xnlbpdpw3#lzg"
 
 # SECURITY WARNING: don't run with debug turned on in entityion!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
