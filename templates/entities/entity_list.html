@@ -1,142 +1,148 @@
 {% extends "base.html" %}
+{% block title %}
+    {% if entity_type == "PT" %}تجهیزات{% endif %}
+    {% if entity_type == "SR" %}خدمات{% endif %}
+    {% if entity_type == "CL" %}آموزش{% endif %}
+    {% if entity_type == "PR" %}پروژه ها{% endif %}
+    {% if entity_type == "EV" %}رویدادها{% endif %}
+{% endblock title %}
 {% block content %}
-    <!-- {% include "partials/search.html" %} -->
-    <div class="entity-filter">
-        <div class="entity-filter-tab-headers">
-            <div class="entity-filter-tab-header {% if entity_type == "PT" %}active{% endif %}"
-                 id="parts">تجهیزات</div>
-            <div class="entity-filter-tab-header {% if entity_type == "SR" %}active{% endif %}"
-                 id="services">خدمات</div>
-            <div class="entity-filter-tab-header {% if entity_type == "CL" %}active{% endif %}"
-                 id="classes">آموزش</div>
-            <div class="entity-filter-tab-header {% if entity_type == "PR" %}active{% endif %}"
-                 id="projects">پروژه ها</div>
-            <div class="entity-filter-tab-header {% if entity_type == "EV" %}active{% endif %}"
-                 id="events">رویدادها</div>
+    {% if not search %}
+        <div class="entity-filter">
+            <div class="entity-filter-tab-headers">
+                <div class="entity-filter-tab-header {% if entity_type == "PT" %}active{% endif %}"
+                     id="parts">تجهیزات</div>
+                <div class="entity-filter-tab-header {% if entity_type == "SR" %}active{% endif %}"
+                     id="services">خدمات</div>
+                <div class="entity-filter-tab-header {% if entity_type == "CL" %}active{% endif %}"
+                     id="classes">آموزش</div>
+                <div class="entity-filter-tab-header {% if entity_type == "PR" %}active{% endif %}"
+                     id="projects">پروژه ها</div>
+                <div class="entity-filter-tab-header {% if entity_type == "EV" %}active{% endif %}"
+                     id="events">رویدادها</div>
+            </div>
+            <div class="entity-filter-tabs">
+                <div class="entity-filter-tab {% if entity_type == "PT" %}active{% endif %}"
+                     id="parts">
+                    <form method="get"
+                          action="{% url "entities:list" %}?entity_type=PT"
+                          class="tab-form"
+                          id="parts">
+                        <input hidden name="entity_type" value="PT" />
+                        <select name="vehicle" id="vehicle" class="filter-select">
+                            <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
+                            <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
+                            <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
+                        </select>
+                        <select name="category" id="category" class="filter-select">
+                            <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
+                            {% for p in part_categories %}
+                                <option value="{{ p.pk }}"
+                                        {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <button class="filter-button">فیلتر</button>
+                    </form>
+                </div>
+                <div class="entity-filter-tab {% if entity_type == "SR" %}active{% endif %}"
+                     id="services">
+                    <form method="get"
+                          action="{% url "entities:list" %}?entity_type=SR"
+                          class="tab-form"
+                          id="services">
+                        <input hidden name="entity_type" value="SR" />
+                        <select name="vehicle" id="vehicle" class="filter-select">
+                            <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
+                            <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
+                            <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
+                        </select>
+                        <select name="category" id="category" class="filter-select">
+                            <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
+                            {% for p in service_categories %}
+                                <option value="{{ p.pk }}"
+                                        {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <button class="filter-button">فیلتر</button>
+                    </form>
+                </div>
+                <div class="entity-filter-tab {% if entity_type == "CL" %}active{% endif %}"
+                     id="classes">
+                    <form method="get"
+                          action="{% url "entities:list" %}?entity_type=CL"
+                          class="tab-form"
+                          id="classes">
+                        <input hidden name="entity_type" value="CL" />
+                        <select name="vehicle" id="vehicle" class="filter-select">
+                            <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
+                            <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
+                            <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
+                        </select>
+                        <select name="category" id="category" class="filter-select">
+                            <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
+                            {% for p in class_categories %}
+                                <option value="{{ p.pk }}"
+                                        {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <button class="filter-button">فیلتر</button>
+                    </form>
+                </div>
+                <div class="entity-filter-tab {% if entity_type == "PR" %}active{% endif %}"
+                     id="projects">
+                    <form method="get"
+                          action="{% url "entities:list" %}?entity_type=PR"
+                          class="tab-form"
+                          id="projects">
+                        <input hidden name="entity_type" value="PR" />
+                        <select name="vehicle" id="vehicle" class="filter-select">
+                            <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
+                            <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
+                            <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
+                        </select>
+                        <select name="category" id="category" class="filter-select">
+                            <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
+                            {% for p in project_categories %}
+                                <option value="{{ p.pk }}"
+                                        {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <button class="filter-button">فیلتر</button>
+                    </form>
+                </div>
+                <div class="entity-filter-tab {% if entity_type == "EV" %}active{% endif %}"
+                     id="events">
+                    <form method="get"
+                          action="{% url "entities:list" %}?entity_type=EV"
+                          class="tab-form"
+                          id="events">
+                        <input hidden name="entity_type" value="EV" />
+                        <select name="vehicle" id="vehicle" class="filter-select">
+                            <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
+                            <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
+                            <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
+                        </select>
+                        <select name="category" id="category" class="filter-select">
+                            <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
+                            {% for p in event_categories %}
+                                <option value="{{ p.pk }}"
+                                        {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <button class="filter-button">فیلتر</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="entity-filter-tabs">
-            <div class="entity-filter-tab {% if entity_type == "PT" %}active{% endif %}"
-                 id="parts">
-                <form method="get"
-                      action="{% url "entities:list" %}?entity_type=PT"
-                      class="tab-form"
-                      id="parts">
-                    <input hidden name="entity_type" value="PT" />
-                    <select name="vehicle" id="vehicle" class="filter-select">
-                        <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
-                        <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
-                        <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
-                    </select>
-                    <select name="category" id="category" class="filter-select">
-                        <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
-                        {% for p in part_categories %}
-                            <option value="{{ p.pk }}"
-                                    {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
-                        {% endfor %}
-                    </select>
-                    <button class="filter-button">فیلتر</button>
-                </form>
-            </div>
-            <div class="entity-filter-tab {% if entity_type == "SR" %}active{% endif %}"
-                 id="services">
-                <form method="get"
-                      action="{% url "entities:list" %}?entity_type=SR"
-                      class="tab-form"
-                      id="services">
-                    <input hidden name="entity_type" value="SR" />
-                    <select name="vehicle" id="vehicle" class="filter-select">
-                        <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
-                        <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
-                        <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
-                    </select>
-                    <select name="category" id="category" class="filter-select">
-                        <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
-                        {% for p in service_categories %}
-                            <option value="{{ p.pk }}"
-                                    {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
-                        {% endfor %}
-                    </select>
-                    <button class="filter-button">فیلتر</button>
-                </form>
-            </div>
-            <div class="entity-filter-tab {% if entity_type == "CL" %}active{% endif %}"
-                 id="classes">
-                <form method="get"
-                      action="{% url "entities:list" %}?entity_type=CL"
-                      class="tab-form"
-                      id="classes">
-                    <input hidden name="entity_type" value="CL" />
-                    <select name="vehicle" id="vehicle" class="filter-select">
-                        <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
-                        <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
-                        <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
-                    </select>
-                    <select name="category" id="category" class="filter-select">
-                        <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
-                        {% for p in class_categories %}
-                            <option value="{{ p.pk }}"
-                                    {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
-                        {% endfor %}
-                    </select>
-                    <button class="filter-button">فیلتر</button>
-                </form>
-            </div>
-            <div class="entity-filter-tab {% if entity_type == "PR" %}active{% endif %}"
-                 id="projects">
-                <form method="get"
-                      action="{% url "entities:list" %}?entity_type=PR"
-                      class="tab-form"
-                      id="projects">
-                    <input hidden name="entity_type" value="PR" />
-                    <select name="vehicle" id="vehicle" class="filter-select">
-                        <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
-                        <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
-                        <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
-                    </select>
-                    <select name="category" id="category" class="filter-select">
-                        <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
-                        {% for p in project_categories %}
-                            <option value="{{ p.pk }}"
-                                    {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
-                        {% endfor %}
-                    </select>
-                    <button class="filter-button">فیلتر</button>
-                </form>
-            </div>
-            <div class="entity-filter-tab {% if entity_type == "EV" %}active{% endif %}"
-                 id="events">
-                <form method="get"
-                      action="{% url "entities:list" %}?entity_type=EV"
-                      class="tab-form"
-                      id="events">
-                    <input hidden name="entity_type" value="EV" />
-                    <select name="vehicle" id="vehicle" class="filter-select">
-                        <option value="" {% if vehicle == "" %}selected{% endif %}>سبک/سنگین</option>
-                        <option value="LT" {% if vehicle == "LT" %}selected{% endif %}>سبک</option>
-                        <option value="HV" {% if vehicle == "HV" %}selected{% endif %}>سنگین</option>
-                    </select>
-                    <select name="category" id="category" class="filter-select">
-                        <option value="" {% if category == "" %}selected{% endif %}>همه دسته بندی ها</option>
-                        {% for p in event_categories %}
-                            <option value="{{ p.pk }}"
-                                    {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
-                        {% endfor %}
-                    </select>
-                    <button class="filter-button">فیلتر</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="entity-list">
+    {% endif %}
+    <div class=" {% if entities|length %} entity-list {% else %} not-found {% endif %}">
+        {% for entity in entities %}
+            {% include "mixins/entity_card.html" %}
+        {% endfor %}
         {% if entities|length %}
-            {% for entity in entities %}
-                {% include "mixins/entity_card.html" %}
-            {% endfor %}
         {% else %}
-            <div class="not-found">
-                <i class="fa-regular fa-face-sad-cry fa-6x"></i>
-                <p>موردی یافت نشد</p>
-            </div>
+            <i class="fa-regular fa-face-sad-cry fa-6x"></i>
+            <p>موردی یافت نشد</p>
         {% endif %}
     </div>
 {% endblock content %}

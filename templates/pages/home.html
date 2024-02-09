@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block title %}
-    Home
+    خانه
 {% endblock title %}
 {% block content %}
     <section class="main-section">
+        {% include "partials/search-bar-main.html" %}
         {% include "partials/slideshow.html" with slideshow=TopSlideshow %}
         {% include "partials/announce.html" %}
-        {% include "partials/features.html" %}
+        <!-- {% include "partials/features.html" %} -->
         {% include "partials/brands.html" %}
         {% include "partials/achievements.html" %}
         {% include "partials/commitments.html" %}

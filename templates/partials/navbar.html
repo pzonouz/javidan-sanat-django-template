@@ -1,16 +1,18 @@
 <div id="navbar-top-bar" class="navbar-top-bar">
     <div id="social-icons" class="social-icons">
-        <div class="fa-icon-holder">
-            <i class="fa-brands fa-instagram fa-xl" aria-hidden="true"></i>
-        </div>
-        <div class="fa-icon-holder">
-            <i class="fa-brands fa-telegram fa-xl" aria-hidden="true"></i>
-        </div>
-        <div class="fa-icon-holder">
-            <i class="fa-brands fa-whatsapp fa-xl" aria-hidden="true"></i>
-        </div>
+        <a href="https://www.instagram.com/javidan_sanat.ir?igsh=MzRlODBiNWFlZA=="
+           class="fa-icon-holder">
+            <i class="fa-brands fa-instagram fa-2xl" aria-hidden="true"></i>
+        </a>
+        <a href="https://t.me/jskp_academy" class="fa-icon-holder">
+            <i class="fa-brands fa-telegram fa-2xl" aria-hidden="true"></i>
+        </a>
+        <a class="fa-icon-holder">
+            <i class="fa-brands fa-whatsapp fa-2xl" aria-hidden="true"></i>
+        </a>
     </div>
-    <div class="phone-number">04135420988</div>
+    {% include "mixins/search-bar.html" %}
+    <a class="phone-number" href="tel:04135420988">04135420988</a>
 </div>
 <nav class="mobile-navbar">
     <div class="backdrop" id="backdrop"></div>
@@ -19,10 +21,12 @@
             <a href="{% url "core:home" %}">
                 <img src="/static/image/arm2000.webp" />
             </a>
-            <a href="{% url "entities:list" %}?product_type=PT">تجهیزات</a>
-            <a href="{% url "entities:list" %}?product_type=SR">خدمات</a>
-            <a href="{% url "entities:list" %}?product_type=PR">پروژه ها</a>
-            <a href="{% url "entities:list" %}?product_type=EV">رویداد ها</a>
+            {% include "mixins/side-menu-search-bar.html" %}
+            <a href="{% url "entities:list" %}?entity_type=PT">تجهیزات</a>
+            <a href="{% url "entities:list" %}?entity_type=SR">خدمات</a>
+            <a href="{% url "entities:list" %}?entity_type=SR">آموزش</a>
+            <a href="{% url "entities:list" %}?entity_type=PR">پروژه ها</a>
+            <a href="{% url "entities:list" %}?entity_type=EV">رویداد ها</a>
             <a href="{% url "entities:list" %}">درباره ما</a>
             <a href="{% url "entities:list" %}">ارتباط با ما</a>
         </div>
@@ -35,18 +39,11 @@
         <a href="{% url "core:home" %}" class="heading-bottom">فردای روشن خدمات</a>
     </div>
     <a href="{% url "core:home" %}" class="logo-a">
-        <img class="logo"
-             height="73px"
-             width="90px"
-             alt="logo"
-             src="../../static/image/arm2000.webp" />
+        <img class="logo" alt="logo" src="../../static/image/arm2000.webp" />
     </a>
 </nav>
 <nav class="desktop-navbar">
-    <div class="heading">
-        <a href="{% url "core:home" %}" class="heading-top">گروه جاویدان صنعت</a>
-        <a href="{% url "core:home" %}" class="heading-bottom">تجهیزات،خدمات،کالیبراسیون،آموزش</a>
-    </div>
+    <a class="heading" href="{% url "core:home" %}">گروه جاویدان صنعت</a>
     <a href="{% url "core:home" %}" class="logo-a">
         <img class="logo"
              height="73px"
@@ -58,6 +55,7 @@
 <div class="desktop-menu">
     <a href="{% url "entities:list" %}?entity_type=PT">تجهیزات</a>
     <a href="{% url "entities:list" %}?entity_type=SR">خدمات</a>
+    <a href="{% url "entities:list" %}?entity_type=CL">آموزش</a>
     <a href="{% url "entities:list" %}?entity_type=PR">پروژه ها</a>
     <a href="{% url "entities:list" %}?entity_type=EV">رویداد ها</a>
     <a href="{% url "entities:list" %}">درباره ما</a>

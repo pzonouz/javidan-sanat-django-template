@@ -4,12 +4,8 @@
   },
   "disks": [
     {
-      "name": "sqlite",
+      "name": "all",
       "mountTo": "."
-    },
-    {
-      "name": "media",
-      "mountTo": "media"
     }
   ]
 }

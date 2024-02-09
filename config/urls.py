@@ -14,10 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
+
 
 from core import urls as core_urls
 
@@ -28,6 +30,7 @@ urlpatterns = [
     path("entities/", include("entities.urls", namespace="entities")),
 ]
 
-urlpatterns = urlpatterns + static(
-    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
-)
+static_urlpatterns = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+media_urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns = urlpatterns + static_urlpatterns + media_urlpatterns

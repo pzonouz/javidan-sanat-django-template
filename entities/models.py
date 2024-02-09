@@ -17,6 +17,7 @@ class Entity(core_models.TimeStamped):
     preamble = models.TextField()
     main_picture = models.ImageField(null=True)
     type = models.CharField(max_length=7, choices=TYPE_CHOICES, null=True)
+    carousel = models.BooleanField(default=False)
 
     brand = models.ForeignKey(
         "Brand",
@@ -25,7 +26,7 @@ class Entity(core_models.TimeStamped):
         related_name="entities",
         blank=True,
     )
-    category = models.ForeignKey("Category", on_delete=models.SET_NULL, null=True)
+    categories = models.ManyToManyField(to="category", related_name="entities")
     entities = models.ManyToManyField(to="self", blank=True)
     vehicle = models.CharField(max_length=10, choices=VEHICLE_CHOICES, default="LT")
 

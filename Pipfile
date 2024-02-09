@@ -5,12 +5,12 @@ name = "pypi"
 
 [packages]
 django = "*"
-django-debug-toolbar = "*"
 pillow = "*"
 django-extensions = "*"
 pydotplus = "*"
 werkzeug = "*"
 djlint = "*"
+django-debug-toolbar = "*"
 
 [dev-packages]
 
