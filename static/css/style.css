@@ -1125,11 +1125,11 @@ body {
     grid-row: 1/2;
   }
   .entity-detail-photo-gallery {
-    grid-column: 2/3;
+    grid-column: 1/2;
     grid-row: 2/3;
   }
   .entity-detail-specifications {
-    grid-column: 1/2;
+    grid-column: 2/3;
     grid-row: 2/3;
     width: 80%;
     justify-self: center;

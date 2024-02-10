@@ -7,16 +7,18 @@
             <div class="entity-detail-name">{{ object.name }}</div>
             <div class="entity-detail-preamble">{{ object.preamble }}</div>
         </div>
-        <div class="entity-detail-photo-gallery">
-            <p>گالری تصاویر</p>
-            <div class="entity-detail-photo-gallery-items">
-                {% for image in object.images.all %}
-                    <a href="/media/{{ image.file }}" data-caption="Image caption">
-                        <img src="/media/{{ image.file }}" alt="{{ image.name }}">
-                    </a>
-                {% endfor %}
+        {% if object.images|length %}
+            <div class="entity-detail-photo-gallery">
+                <p>گالری تصاویر</p>
+                <div class="entity-detail-photo-gallery-items">
+                    {% for image in object.images.all %}
+                        <a href="/media/{{ image.file }}" data-caption="Image caption">
+                            <img src="/media/{{ image.file }}" alt="{{ image.name }}">
+                        </a>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
+        {% endif %}
         <!-- <div class="entity-detail-video-gallery">
             <p>گالری ویديوها</p>
             {% for video in object.videos.all %}
@@ -24,7 +26,9 @@
             {% endfor %}
         </div> -->
         <div class="entity-detail-specifications">
-            <p>مشخصات فنی</p>
+            {% if object.type == "CL" %}<p>سرفصلها</p>{% endif %}
+            {% if object.type == "PT" %}<p>مشخصات فنی</p>{% endif %}
+            {% if object.type == "SR" %}<p>موارد</p>{% endif %}
             {% for spec in object.specifications.all %}<div>{{ spec.field }}</div>{% endfor %}
         </div>
     </div>
