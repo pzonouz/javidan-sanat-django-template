@@ -24,11 +24,11 @@
             {% include "mixins/side-menu-search-bar.html" %}
             <a href="{% url "entities:list" %}?entity_type=PT">تجهیزات</a>
             <a href="{% url "entities:list" %}?entity_type=SR">خدمات</a>
-            <a href="{% url "entities:list" %}?entity_type=SR">آموزش</a>
+            <a href="{% url "entities:list" %}?entity_type=CL">آموزش</a>
             <a href="{% url "entities:list" %}?entity_type=PR">پروژه ها</a>
             <a href="{% url "entities:list" %}?entity_type=EV">رویداد ها</a>
-            <a href="{% url "entities:list" %}">درباره ما</a>
-            <a href="{% url "entities:list" %}">ارتباط با ما</a>
+            <a href="#">درباره ما</a>
+            <div id="contact-us-mobile">ارتباط با ما</div>
         </div>
     </div>
     <div class="fa-icon-holder" id="menu-button">
@@ -58,6 +58,10 @@
     <a href="{% url "entities:list" %}?entity_type=CL">آموزش</a>
     <a href="{% url "entities:list" %}?entity_type=PR">پروژه ها</a>
     <a href="{% url "entities:list" %}?entity_type=EV">رویداد ها</a>
-    <a href="{% url "entities:list" %}">درباره ما</a>
-    <a href="{% url "entities:list" %}">ارتباط با ما</a>
+    <a href="#">درباره ما</a>
+    <div id="contact-us-desktop">ارتباط با ما</div>
+</div>
+<div class="to-top" id="to-top">
+    <p>ابتدای صفحه</p>
+    <i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i>
 </div>

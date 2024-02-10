@@ -7,7 +7,8 @@
     {% if entity_type == "EV" %}رویدادها{% endif %}
 {% endblock title %}
 {% block content %}
-    {% if not search %}
+    {% if search or no_filter %}
+    {% else %}
         <div class="entity-filter">
             <div class="entity-filter-tab-headers">
                 <div class="entity-filter-tab-header {% if entity_type == "PT" %}active{% endif %}"

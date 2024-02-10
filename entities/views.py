@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic import DetailView
 from django.db.models import Q
+from django.views.generic import ListView
 
 from entities.models import Category, Entity
 
@@ -67,3 +68,15 @@ class EntitiesList(View):
 
 class EntityDetail(DetailView):
     model = Entity
+
+
+class BrandRelatedEntities(ListView):
+    context_object_name = "entities"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["no_filter"] = True
+        return context
+
+    def get_queryset(self):
+        return Entity.objects.filter(brand__pk=self.kwargs["pk"])
