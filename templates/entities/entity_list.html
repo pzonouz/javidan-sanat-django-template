@@ -42,7 +42,7 @@
                                         {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
                             {% endfor %}
                         </select>
-                        <button class="filter-button">فیلتر</button>
+                        <button class="filter-button">جستجو</button>
                     </form>
                 </div>
                 <div class="entity-filter-tab {% if entity_type == "SR" %}active{% endif %}"
@@ -64,7 +64,7 @@
                                         {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
                             {% endfor %}
                         </select>
-                        <button class="filter-button">فیلتر</button>
+                        <button class="filter-button">جستجو</button>
                     </form>
                 </div>
                 <div class="entity-filter-tab {% if entity_type == "CL" %}active{% endif %}"
@@ -86,7 +86,7 @@
                                         {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
                             {% endfor %}
                         </select>
-                        <button class="filter-button">فیلتر</button>
+                        <button class="filter-button">جستجو</button>
                     </form>
                 </div>
                 <div class="entity-filter-tab {% if entity_type == "PR" %}active{% endif %}"
@@ -108,7 +108,7 @@
                                         {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
                             {% endfor %}
                         </select>
-                        <button class="filter-button">فیلتر</button>
+                        <button class="filter-button">جستجو</button>
                     </form>
                 </div>
                 <div class="entity-filter-tab {% if entity_type == "EV" %}active{% endif %}"
@@ -130,11 +130,14 @@
                                         {% if p.pk|slugify ==  category %}selected{% endif %}>{{ p.name }}</option>
                             {% endfor %}
                         </select>
-                        <button class="filter-button">فیلتر</button>
+                        <button class="filter-button">جستجو</button>
                     </form>
                 </div>
             </div>
         </div>
+    {% endif %}
+    {% if search %}
+        {% include "partials/search-bar-main-for-search.html" %}
     {% endif %}
     <div class=" {% if entities|length %} entity-list {% else %} not-found {% endif %}">
         {% for entity in entities %}

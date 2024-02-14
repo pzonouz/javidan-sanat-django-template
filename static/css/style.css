@@ -112,6 +112,40 @@ img {
   cursor: pointer;
   z-index: 200;
 }
+.search-bar-main-for-search {
+  padding-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  max-width: 30rem;
+}
+.search-bar-main-for-search .search-box {
+  position: relative;
+}
+.search-bar-main-for-search input {
+  appearance: none;
+  outline: none;
+  border: var(--gray-color) solid 1px;
+  height: 3rem;
+  font-family: "Yekan";
+  padding: 0 1rem;
+  border-radius: 3px;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.search-bar-main-for-search button {
+  background-color: var(--secondary-color);
+  position: absolute;
+  border-radius: 2px;
+  border: none;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+  color: white;
+}
 .logo-a {
   height: 115%;
 }

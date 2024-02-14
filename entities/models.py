@@ -59,7 +59,7 @@ class Brand(core_models.TimeStamped):
 
 class Specification(core_models.TimeStamped):
     field = models.TextField()
-    entities = models.ManyToManyField(to=Entity)
+    entities = models.ManyToManyField(to=Entity, related_name="specifications")
 
     def __str__(self) -> str:
         return self.field

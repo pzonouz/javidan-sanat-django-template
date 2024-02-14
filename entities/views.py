@@ -31,11 +31,17 @@ class EntitiesList(View):
             )
         search = request.GET.get("search")
         if search is not None:
-            entities = Entity.objects.filter(name__icontains=search)
+            entities = Entity.objects.filter(
+                Q(name__icontains=search)
+                | Q(preamble__icontains=search)
+                | Q(brand__name__icontains=search)
+                | Q(type__icontains=search)
+                | Q(categories__name__icontains=search)
+            )
             return render(
                 request,
                 "entities/entity_list.html",
-                context={"entities": entities, "search": True},
+                context={"entities": entities, "search": search},
             )
         entity_type = request.GET.get("entity_type", "")
         category = request.GET.get("category", "")

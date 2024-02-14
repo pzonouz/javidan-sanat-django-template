@@ -37,13 +37,13 @@ try {
     sideBar.classList.remove("open");
     backdrop.classList.remove("open");
   });
-  const entityFilterTabHeaders = document.querySelector(
-    ".entity-filter-tab-headers"
-  );
 } catch (error) {}
 
 // filter
 try {
+  const entityFilterTabHeaders = document.querySelector(
+    ".entity-filter-tab-headers"
+  );
   const entityFilterTabs = document.querySelectorAll(".entity-filter-tab");
   entityFilterTabHeaders.addEventListener("click", (e) => {
     const el = e.target;
@@ -61,7 +61,9 @@ try {
     });
     el.classList.add("active");
   });
-} catch (error) {}
+} catch (error) {
+  console.log(error);
+}
 
 // contact-us scroll
 try {

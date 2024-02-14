@@ -11,7 +11,9 @@
             <i class="fa-brands fa-whatsapp fa-2xl" aria-hidden="true"></i>
         </a>
     </div>
-    {% include "mixins/search-bar.html" %}
+    {% if not search %}
+        {% include "mixins/search-bar.html" %}
+    {% endif %}
     <a class="phone-number" href="tel:04135420988">04135420988</a>
 </div>
 <nav class="mobile-navbar">
